@@ -1,0 +1,120 @@
+\documentclass{beamer}
+\usetheme{CambridgeUS}
+
+\setbeamertemplate{caption}[numbered]{}
+
+\usepackage{enumitem}
+\usepackage{tfrupee}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{textcomp, gensymb}
+\usepackage{graphicx}
+\usepackage{txfonts}
+
+\def\inputGnumericTable{}
+
+\usepackage[latin1]{inputenc}                                 
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{longtable}                                        
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}
+\usepackage{caption} 
+\providecommand{\mbf}{\mathbf}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}                                  
+                               
+\title{Assignment 12}
+\author{G HARSHA VARDHAN REDDY ( CS21BTECH11017 )}
+\date{\today}
+\logo{\large{AI1110}}
+
+
+\begin{document}
+% Title page frame
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+% Remove logo from the next slides
+\logo{}
+
+
+% Outline frame
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+%Question
+\section{Problem Statement}
+\begin{frame}{Problem Statement}
+    \begin{block} {Papoulis Pillai Probability Random Variables and Stochastic Processes\\ 
+    Exercise : 6-65}
+    The random variables $X_i $ are i.i.d. and uniform in the interval (0,1). Show that if $ Y = max(X_i) $ then $F_Y(y) =y^n $ for $0 \leq y \leq 1$.
+    
+    \end{block}
+\end{frame}
+\section{Definitions}
+\begin{frame}{Theory}
+\begin{block}{}
+If $X_1$ and $X_2$ are independent, then
+\begin{align}
+    P(X_1 \leq x , X_2 \leq x ) &= P(X_1\leq x) \cdot P( X_2 \leq x ) \label{1}
+\end{align}
+\end{block}
+\begin{block}{}
+A random variable $X$ is said to be uniformly distributed over an interval if the probability density function is given by
+\begin{align}
+    f_X(x)=&1 , \text{    for x in given interval} \label{2}
+\end{align}
+\end{block}
+\begin{block}{}
+$X_i$ are said to be i.i.d.(independent and identically distributed) if they are independent and have same pmf.
+\end{block}
+\end{frame}
+\section{Solution}
+\begin{frame}{Solution}
+    Given,
+    \begin{align}
+        Y&= max(X_i)
+        \implies \cbrak{Y \leq y} = \cbrak{X_1 \leq y,X_2 \leq y,\dots, X_n \leq y}
+    \end{align}
+Hence,
+\begin{align}
+    F_Y(y) &= P(Y \leq y)\\
+            &= P(X_1 \leq y,X_2 \leq y,\dots, X_n \leq y) \label{5}
+\end{align}
+From \eqref{1} and \eqref{5},
+\begin{align}
+    F_Y(y)&=P(X_1 \leq y) P(X_2 \leq y) \dots  P(X_n \leq y)\\
+    &=(P(X_1 \leq y))^n.......... (\text{Since } X_i \text{ are i.i.d})\\
+    \implies F_Y(y) &=(F_{X_i}(y))^n \label{8}
+\end{align}
+\end{frame}
+
+\begin{frame}{}
+Given that $X_i$ are uniformly distributed over \{$0 \leq x \leq 1$\}\\
+    From \eqref{2}
+    \begin{align}
+        f_{X_i}(x) &= 1 \\
+        \implies F_{X_i}(x) &= x  & 0\leq x \leq 1
+        \label{10}
+    \end{align}
+From \eqref{8} and \eqref{10},\\
+For $ 0 \leq y \leq 1 $
+\begin{align}
+    F_Y(y) &=(F_{X_i}(y))^n=y^n\\
+    \implies F_Y(y) &= y^n
+\end{align}
+\end{frame}
+\end{document}
